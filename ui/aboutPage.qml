@@ -15,21 +15,21 @@ Page {
         }
 
         Label {
+            width: parent.width - units.gu(4)
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            text: i18n.tr("Dota 2 Match Ticker displays live and upcoming professional Dota 2 matches. All the information is sourced from <a href='http://dailydota2.com'>DailyDota2.com</a>.")
+            textFormat: Text.StyledText
+            linkColor: UbuntuColors.orange
+
             anchors {
                 left: parent.left
                 right: parent.right
                 margins: units.gu(2)
             }
 
-            width: parent.width - units.gu(4)
-
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-
             onLinkActivated: {
                 Qt.openUrlExternally(link)
             }
-
-            text: i18n.tr("Dota 2 Match Ticker displays live and upcoming professional Dota 2 matches. All the information is sourced from <a href='http://dailydota2.com'>DailyDota2.com</a>.")
         }
 
 
