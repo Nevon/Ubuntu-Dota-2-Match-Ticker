@@ -79,7 +79,8 @@ Page {
         visible: matchList.model.count === 0 && tickerFeed.status === tickerFeed.readyStatus
         anchors.centerIn: parent
         text: i18n.tr("No upcoming matches")
-        fontSize: "medium"
+        fontSize: "large"
+        opacity: 0.5
     }
 
     Label {
@@ -89,6 +90,15 @@ Page {
     }
 
     tools: ToolbarItems {
+        ToolbarButton {
+            id: aboutButton
+
+            action: Action {
+                text: i18n.tr("About")
+                iconName: "help"
+                onTriggered: mainStack.push(Qt.resolvedUrl("./aboutPage.qml"))
+            }
+        }
         ToolbarButton {
             action: Action {
                 text: i18n.tr("Reload")
