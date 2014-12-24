@@ -22,7 +22,7 @@ MainView {
     // Removes the old toolbar and enables new features of the new header.
     useDeprecatedToolbar: false
 
-    width: units.gu(100)
+    width: units.gu(50)
     height: units.gu(75)
 
     headerColor: "#333333"
