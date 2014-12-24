@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
+import Ubuntu.Connectivity 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../components/JSONListModel"
 
@@ -7,6 +8,19 @@ Page {
     id: tickerPage
     anchors.fill: parent
     title: i18n.tr("Dota 2 Match Ticker")
+
+    states: State {
+        name: "OFFLINE"
+        when: (NetworkingStatus.online === false)
+        PropertyChanges {
+            target: matchList
+            visible: false
+        }
+        PropertyChanges {
+            target: offlineMessage
+            visible: true
+        }
+    }
 
     UbuntuListView {
         id: matchList
@@ -87,6 +101,17 @@ Page {
         visible: tickerFeed.status === tickerFeed.errorStatus
         anchors.centerIn: parent
         text: i18n.tr("Something went wrong")
+        fontSize: "large"
+        opacity: 0.5
+    }
+
+    Label {
+        id: offlineMessage
+        visible: false
+        anchors.centerIn: parent
+        text: i18n.tr("Go online to see upcoming matches")
+        fontSize: "large"
+        opacity: 0.5
     }
 
     tools: ToolbarItems {

@@ -3,15 +3,24 @@ import Ubuntu.Components 1.1
 
 Page {
     id: aboutPage
-    anchors.fill: parent
     title: i18n.tr("About")
 
-    Item {
+    Column {
+        spacing: units.gu(2)
+
         anchors {
-            fill: parent
+            left: parent.left
+            right: parent.right
         }
 
         Label {
+            anchors {
+                left: parent.left
+                right: parent.right
+                leftMargin: units.gu(1)
+                rightMargin: units.gu(1)
+            }
+
             text: i18n.tr("Gets data from DailyDota.com")
         }
     }

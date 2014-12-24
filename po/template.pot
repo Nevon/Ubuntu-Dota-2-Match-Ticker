@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 21:05+0100\n"
+"POT-Creation-Date: 2014-12-24 22:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ui/aboutPage.qml:7 ui/tickerPage.qml:97
+#: ui/aboutPage.qml:6 ui/tickerPage.qml:122
 msgid "About"
 msgstr ""
 
-#: ui/aboutPage.qml:15
+#: ui/aboutPage.qml:24
 msgid "Gets data from DailyDota.com"
 msgstr ""
 
-#: ui/tickerPage.qml:9
+#: ui/tickerPage.qml:10
 msgid "Dota 2 Match Ticker"
 msgstr ""
 
-#: ui/tickerPage.qml:34
+#: ui/tickerPage.qml:48
 msgid "vs"
 msgstr ""
 
-#: ui/tickerPage.qml:35
+#: ui/tickerPage.qml:49
 msgid "LIVE"
 msgstr ""
 
-#: ui/tickerPage.qml:81
+#: ui/tickerPage.qml:95
 msgid "No upcoming matches"
 msgstr ""
 
-#: ui/tickerPage.qml:89
+#: ui/tickerPage.qml:103
 msgid "Something went wrong"
 msgstr ""
 
-#: ui/tickerPage.qml:104
+#: ui/tickerPage.qml:112
+msgid "Go online to see upcoming matches"
+msgstr ""
+
+#: ui/tickerPage.qml:129
 msgid "Reload"
 msgstr ""
