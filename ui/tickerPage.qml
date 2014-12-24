@@ -33,6 +33,45 @@ Page {
             id: matchItemDelegate
             text: model.team1.team_name + " " + i18n.tr("vs") + " " + model.team2.team_name
             subText: (model.status === 1 || model.timediff < 0) ? i18n.tr("LIVE") : model.starttime
+            opacity: 0
+        }
+
+        add: Transition {
+            id: addMatchAnimation
+
+            property bool forward: false
+
+            ParallelAnimation {
+                UbuntuNumberAnimation {
+                    properties: "opacity"
+                    to: 100
+                }
+
+                UbuntuNumberAnimation {
+                    properties: "x"
+                    from: addMatchAnimation.forward ? matchList.width : -matchList.width
+                    to: 0
+                }
+            }
+        }
+
+        remove: Transition {
+            id: removeMatchAnimation
+
+            property bool forward: true
+
+            ParallelAnimation {
+                UbuntuNumberAnimation {
+                    properties: "opacity"
+                    to: 0
+                }
+
+                UbuntuNumberAnimation {
+                    properties: "x"
+                    from: 0
+                    to: removeMatchAnimation.forward ? -matchList.width : matchList.width
+                }
+            }
         }
     }
 
