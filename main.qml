@@ -25,6 +25,10 @@ MainView {
     width: units.gu(50)
     height: units.gu(75)
 
+    headerColor: "#333333"
+    backgroundColor: "#444444"
+    footerColor: "#555555"
+
     PageStack {
         id: mainStack
         anchors.fill: parent
