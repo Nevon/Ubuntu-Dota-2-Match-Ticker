@@ -1,0 +1,15 @@
+{
+    "name": "com.tommybrunn.developer.tommy.dota-2-match-ticker",
+    "description": "See upcoming Dota 2 matches",
+    "architecture": "all",
+    "title": "Dota 2 Match Ticker",
+    "hooks": {
+        "dota-2-match-ticker": {
+            "apparmor": "dota-2-match-ticker.apparmor",
+            "desktop": "dota-2-match-ticker.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Tommy Brunn <tommy.brunn@gmail.com>",
+    "framework": "ubuntu-sdk-14.10"
+}

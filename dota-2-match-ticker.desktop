@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=dota-2-match-ticker
+Exec=qmlscene $@ main.qml
+Icon=dota-2-match-ticker.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
