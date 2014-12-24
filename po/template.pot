@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 22:58+0100\n"
+"POT-Creation-Date: 2014-12-24 23:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ui/aboutPage.qml:6 ui/tickerPage.qml:122
+#: ui/aboutPage.qml:7 ui/tickerPage.qml:122
 msgid "About"
 msgstr ""
 
-#: ui/aboutPage.qml:24
-msgid "Gets data from DailyDota.com"
+#: ui/aboutPage.qml:32
+msgid ""
+"Dota 2 Match Ticker displays live and upcoming professional Dota 2 matches. "
+"All the information is sourced from <a href='http://dailydota2."
+"com'>DailyDota2.com</a>."
+msgstr ""
+
+#: ui/aboutPage.qml:38
+msgid "Author"
+msgstr ""
+
+#: ui/aboutPage.qml:46
+msgid "Website"
+msgstr ""
+
+#: ui/aboutPage.qml:47
+msgid "https://github.com/Nevon/Ubuntu-Dota-2-Match-Ticker"
+msgstr ""
+
+#: ui/aboutPage.qml:54
+msgid "License"
 msgstr ""
 
 #: ui/tickerPage.qml:10
