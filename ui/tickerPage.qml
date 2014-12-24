@@ -10,8 +10,12 @@ Page {
 
     UbuntuListView {
         id: matchList
+
         anchors.fill: parent
+
         model: tickerFeed.model
+
+        visible: model.count > 0
 
         JSONListModel {
             id: tickerFeed
@@ -21,7 +25,7 @@ Page {
 
         PullToRefresh {
             enabled: true
-            refreshing: tickerFeed.status === tickerFeed.loadingStatus
+            refreshing: tickerFeed.status == tickerFeed.loadingStatus
             onRefresh: tickerFeed.reload()
         }
 
@@ -29,6 +33,29 @@ Page {
             id: matchItemDelegate
             text: model.team1.team_name + " " + i18n.tr("vs") + " " + model.team2.team_name
             subText: (model.status === 1 || model.timediff < 0) ? i18n.tr("LIVE") : model.starttime
+        }
+    }
+
+    Label {
+        visible: matchList.model.count === 0 && tickerFeed.status === tickerFeed.readyStatus
+        anchors.centerIn: parent
+        text: i18n.tr("No upcoming matches")
+        fontSize: "medium"
+    }
+
+    Label {
+        visible: tickerFeed.status === tickerFeed.errorStatus
+        anchors.centerIn: parent
+        text: i18n.tr("Something went wrong")
+    }
+
+    tools: ToolbarItems {
+        ToolbarButton {
+            action: Action {
+                text: i18n.tr("Reload")
+                iconName: "reload"
+                onTriggered: tickerFeed.reload()
+            }
         }
     }
 }

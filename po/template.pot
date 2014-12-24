@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 17:38+0100\n"
+"POT-Creation-Date: 2014-12-24 18:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,10 +21,22 @@ msgstr ""
 msgid "Dota 2 Match Ticker"
 msgstr ""
 
-#: ui/tickerPage.qml:30
+#: ui/tickerPage.qml:34
 msgid "vs"
 msgstr ""
 
-#: ui/tickerPage.qml:31
+#: ui/tickerPage.qml:35
 msgid "LIVE"
+msgstr ""
+
+#: ui/tickerPage.qml:42
+msgid "No upcoming matches"
+msgstr ""
+
+#: ui/tickerPage.qml:49
+msgid "Something went wrong"
+msgstr ""
+
+#: ui/tickerPage.qml:55
+msgid "Reload"
 msgstr ""
