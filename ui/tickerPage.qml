@@ -3,11 +3,12 @@ import Ubuntu.Components 1.1
 import Ubuntu.Connectivity 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../components/JSONListModel"
+import "../components/ticker"
 
 Page {
     id: tickerPage
     anchors.fill: parent
-    title: i18n.tr("Dota 2 Match Ticker")
+    title: i18n.tr("Matches")
     states: State {
         name: "OFFLINE"
         when: (NetworkingStatus.online === false)
@@ -44,12 +45,16 @@ Page {
         anchors.fill: parent
         model: tickerFeed.model
         visible: model.count > 0
-        delegate: ListItem.Subtitled {
+        delegate: MatchItem {
+            id: matchItemDelegate
+        }
+
+        /* delegate: ListItem.Subtitled {
             id: matchItemDelegate
             text: model.team1.team_name + " " + i18n.tr("vs") + " " + model.team2.team_name
             subText: (model.status === 1 || model.timediff < 0) ? i18n.tr("LIVE") : model.starttime
             opacity: 0
-        }
+        }*/
         add: Transition {
             id: addMatchAnimation
 
