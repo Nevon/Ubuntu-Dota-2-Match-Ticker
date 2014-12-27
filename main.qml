@@ -7,6 +7,8 @@ import "ui"
 */
 
 MainView {
+    id: dota2MatchTicker
+
     // objectName for functional testing purposes (autopilot-qt5)
     objectName: "mainView"
 
@@ -34,6 +36,6 @@ MainView {
         anchors.fill: parent
     }
 
-    Component.onCompleted: mainStack.push(Qt.resolvedUrl("./ui/tickerPage.qml"))
+    Component.onCompleted: mainStack.push(Qt.resolvedUrl("./ui/TickerPage.qml"))
 }
 

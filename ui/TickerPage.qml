@@ -2,13 +2,14 @@ import QtQuick 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.Connectivity 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
-import "../components/JSONListModel"
-import "../components/ticker"
+import "../components"
+import "../models/JSONListModel"
 
 Page {
     id: tickerPage
     anchors.fill: parent
     title: i18n.tr("Matches")
+
     states: State {
         name: "OFFLINE"
         when: (NetworkingStatus.online === false)
@@ -21,13 +22,14 @@ Page {
             visible: true
         }
     }
+
     tools: ToolbarItems {
         ToolbarButton {
             id: aboutButton
             action: Action {
                 text: i18n.tr("About")
                 iconName: "help"
-                onTriggered: mainStack.push(Qt.resolvedUrl("./aboutPage.qml"))
+                onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
         }
 
@@ -45,16 +47,21 @@ Page {
         anchors.fill: parent
         model: tickerFeed.model
         visible: model.count > 0
+
         delegate: MatchItem {
             id: matchItemDelegate
+            team1Name: model.team1.team_name
+            team2Name: model.team2.team_name
+            team1Logo: "http://dailydota2.com" + model.team1.logo_url
+            team2Logo: "http://dailydota2.com" + model.team2.logo_url
+            startTime: model.starttime
+            timeDiff: model.timediff
+
+            onClicked: {
+                mainStack.push(Qt.resolvedUrl("MatchPage.qml"), {'matchObj': model})
+            }
         }
 
-        /* delegate: ListItem.Subtitled {
-            id: matchItemDelegate
-            text: model.team1.team_name + " " + i18n.tr("vs") + " " + model.team2.team_name
-            subText: (model.status === 1 || model.timediff < 0) ? i18n.tr("LIVE") : model.starttime
-            opacity: 0
-        }*/
         add: Transition {
             id: addMatchAnimation
 
@@ -73,6 +80,7 @@ Page {
                 }
             }
         }
+
         remove: Transition {
             id: removeMatchAnimation
 

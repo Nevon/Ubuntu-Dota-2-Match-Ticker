@@ -4,14 +4,15 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 
 ListItem.Empty {
     id: matchItem
-    property var match: model
+    property string team1Name
+    property string team2Name
+    property string team1Logo
+    property string team2Logo
+    property string startTime
+    property string timeDiff
 
     width: parent.width
     height: team1Logo.height + team2Logo.height + matchStart.height + units.gu(2)
-    anchors.topMargin: units.gu(1)
-    anchors.bottomMargin: units.gu(1)
-
-    onClicked: mainStack.push(Qt.resolvedUrl("../../ui/matchPage.qml"))
 
     Item {
         id: matchInfo
@@ -35,20 +36,20 @@ ListItem.Empty {
                 anchors.left: parent.left
 
                 Image {
-                    id: team1Logo
-                    source: "http://dailydota2.com" + match.team1.logo_url
+                    id: team1LogoImage
+                    source: matchItem.team1Logo
                     width: Math.round(parent.width * 0.15 * 100) / 100
-                    height: team1Logo.width
+                    height: team1LogoImage.width
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
                 }
 
                 Label {
-                    id: team1Name
-                    text: match.team1.team_name
+                    id: team1NameLabel
+                    text: matchItem.team1Name
                     fontSize: "medium"
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: team1Logo.right
+                    anchors.left: team1LogoImage.right
                     anchors.leftMargin: units.gu(1)
                 }
             }
@@ -75,19 +76,19 @@ ListItem.Empty {
                 anchors.right: parent.right
 
                 Label {
-                    id: team2Name
-                    text: match.team2.team_name
+                    id: team2NameLabel
+                    text: matchItem.team2Name
                     fontSize: "medium"
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: team2Logo.left
+                    anchors.right: team2LogoImage.left
                     anchors.rightMargin: units.gu(1)
                 }
 
                 Image {
-                    id: team2Logo
-                    source: "http://dailydota2.com" + match.team2.logo_url
+                    id: team2LogoImage
+                    source: matchItem.team2Logo
                     width: Math.round(parent.width * 0.15 * 100) / 100
-                    height: team2Logo.width
+                    height: team2LogoImage.width
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                 }
@@ -103,7 +104,7 @@ ListItem.Empty {
             anchors.top: matchInfo.bottom
 
             Label {
-                text: match.starttime
+                text: matchItem.startTime
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }
