@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-27 11:27+0100\n"
+"POT-Creation-Date: 2014-12-27 11:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: components/MatchItem.qml:56 ui/MatchPage.qml:8
+#: components/MatchListItem.qml:56 ui/MatchPage.qml:8
 msgid "vs"
 msgstr ""
 
-#: components/MatchItem.qml:68
+#: components/MatchListItem.qml:68
 msgid "LIVE"
 msgstr ""
 

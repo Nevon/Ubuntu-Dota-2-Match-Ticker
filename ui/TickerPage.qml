@@ -48,7 +48,7 @@ Page {
         model: tickerFeed.model
         visible: model.count > 0
 
-        delegate: MatchItem {
+        delegate: MatchListItem {
             id: matchItemDelegate
             team1Name: model.team1.team_name
             team2Name: model.team2.team_name
