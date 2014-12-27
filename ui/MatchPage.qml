@@ -4,9 +4,23 @@ import QtGraphicalEffects 1.0
 
 Page {
     id: matchPage
+    anchors.fill: parent
     property var matchObj
 
     title: matchObj.team1.team_tag + " " + i18n.tr("vs") + " " + matchObj.team2.team_tag
+
+    tools: ToolbarItems {
+        ToolbarButton {
+            id: openStreamButton
+            action: Action {
+                text: i18n.tr("Watch")
+                iconName: "external-link"
+                onTriggered: {
+                    Qt.openUrlExternally(matchObj.link)
+                }
+            }
+        }
+    }
 
     Item {
         anchors.fill: parent

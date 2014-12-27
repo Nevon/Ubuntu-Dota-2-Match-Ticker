@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-27 11:31+0100\n"
+"POT-Creation-Date: 2014-12-27 17:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,13 +16,53 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: components/MatchListItem.qml:56 ui/MatchPage.qml:8
+#: components/MatchListItem.qml:57 ui/MatchPage.qml:10
 msgid "vs"
 msgstr ""
 
-#: components/MatchListItem.qml:68
+#: components/MatchListItem.qml:81
 msgid "LIVE"
+msgstr ""
+
+#: components/MatchListItem.qml:137
+#, qt-format
+msgid "%1 year"
+msgid_plural "%1 years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: components/MatchListItem.qml:141
+#, qt-format
+msgid "%1 month"
+msgid_plural "%1 months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: components/MatchListItem.qml:145
+#, qt-format
+msgid "%1 day"
+msgid_plural "%1 days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: components/MatchListItem.qml:149
+#, qt-format
+msgid "%1 hour"
+msgid_plural "%1 hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: components/MatchListItem.qml:153
+#, qt-format
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: components/MatchListItem.qml:160
+msgid "d MMM, hh:mm"
 msgstr ""
 
 #: ui/AboutPage.qml:7 ui/TickerPage.qml:30
@@ -50,6 +90,10 @@ msgstr ""
 
 #: ui/AboutPage.qml:54
 msgid "License"
+msgstr ""
+
+#: ui/MatchPage.qml:16
+msgid "Watch"
 msgstr ""
 
 #: ui/TickerPage.qml:11
