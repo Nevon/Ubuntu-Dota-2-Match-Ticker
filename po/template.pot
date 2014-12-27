@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-27 19:26+0100\n"
+"POT-Creation-Date: 2014-12-27 19:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: components/MatchTeams.qml:58 components/MatchListItem.qml:58
-#: ui/MatchPage.qml:12
+#: ui/MatchPage.qml:10
 msgid "vs"
 msgstr ""
 
@@ -114,16 +114,16 @@ msgstr ""
 msgid "License"
 msgstr ""
 
-#: ui/MatchPage.qml:18
+#: ui/MatchPage.qml:16
 msgid "Watch"
 msgstr ""
 
-#: ui/MatchPage.qml:80
+#: ui/MatchPage.qml:78
 #, qt-format
 msgid "Best of %1"
 msgstr ""
 
-#: ui/MatchPage.qml:106
+#: ui/MatchPage.qml:104
 msgid "Watch now"
 msgstr ""
 
