@@ -11,7 +11,9 @@ ListItem.Empty {
     anchors.topMargin: units.gu(1)
     anchors.bottomMargin: units.gu(1)
 
-    Column {
+    onClicked: mainStack.push(Qt.resolvedUrl("../../ui/matchPage.qml"))
+
+    Item {
         id: matchInfo
         anchors.left: parent.left
         anchors.leftMargin: units.gu(2)
@@ -19,19 +21,18 @@ ListItem.Empty {
         anchors.rightMargin: units.gu(2)
         anchors.verticalCenter: parent.verticalCenter
 
-        Row {
+        Item {
             id: teamInfo
-            spacing: units.gu(1)
             anchors.fill: parent
 
-            Row {
+            Item {
                 id: team1Info
                 width: matchItem.width / 2 - versusLabel.width / 2 - units.gu(2)
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.topMargin: units.gu(1)
                 anchors.bottomMargin: units.gu(1)
-                spacing: units.gu(1)
+                anchors.left: parent.left
 
                 Image {
                     id: team1Logo
@@ -39,6 +40,7 @@ ListItem.Empty {
                     width: Math.round(parent.width * 0.15 * 100) / 100
                     height: team1Logo.width
                     anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
                 }
 
                 Label {
@@ -46,26 +48,40 @@ ListItem.Empty {
                     text: match.team1.team_name
                     fontSize: "medium"
                     anchors.verticalCenter: parent.verticalCenter
-
+                    anchors.left: team1Logo.right
+                    anchors.leftMargin: units.gu(1)
                 }
             }
 
-            Label {
-                id: versusLabel
-                text: i18n.tr("vs")
-                fontSize: "small"
-                anchors.verticalCenter: parent.verticalCenter
-                //anchors.horizontalCenter: parent.horizontalCenter
+            Item {
+                anchors.left: team1Info.right
+                anchors.right: team2Info.left
+
+                Label {
+                    id: versusLabel
+                    text: i18n.tr("vs")
+                    fontSize: "small"
+                    anchors.verticalCenter: parent.verticalCenter
+                }
             }
 
-            Row {
+            Item {
                 id: team2Info
                 width: matchItem.width / 2 - versusLabel.width / 2 - units.gu(2)
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.topMargin: units.gu(1)
                 anchors.bottomMargin: units.gu(1)
-                spacing: units.gu(1)
+                anchors.right: parent.right
+
+                Label {
+                    id: team2Name
+                    text: match.team2.team_name
+                    fontSize: "medium"
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: team2Logo.left
+                    anchors.rightMargin: units.gu(1)
+                }
 
                 Image {
                     id: team2Logo
@@ -73,23 +89,18 @@ ListItem.Empty {
                     width: Math.round(parent.width * 0.15 * 100) / 100
                     height: team2Logo.width
                     anchors.verticalCenter: parent.verticalCenter
-                }
-
-                Label {
-                    id: team2Name
-                    text: match.team2.team_name
-                    fontSize: "medium"
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
                 }
             }
         }
 
-        Rectangle {
+        Item {
             id: matchStart
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.leftMargin: units.gu(2)
             anchors.rightMargin: units.gu(2)
+            anchors.top: matchInfo.bottom
 
             Label {
                 text: match.starttime
