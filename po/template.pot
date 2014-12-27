@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-27 20:12+0100\n"
+"POT-Creation-Date: 2014-12-27 23:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,14 +27,14 @@ msgstr ""
 msgid "LIVE"
 msgstr ""
 
-#: components/MatchTeams.qml:93
+#: components/MatchTeams.qml:93 components/MatchListItem.qml:106
 #, c-format, qt-format
 msgid "%1d"
 msgid_plural "%1d"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchTeams.qml:97
+#: components/MatchTeams.qml:97 components/MatchListItem.qml:110
 #, qt-format
 msgid "%1h"
 msgid_plural "%1h"
@@ -52,38 +52,32 @@ msgstr[1] ""
 msgid "d MMM, hh:mm"
 msgstr ""
 
+#: components/MatchTeamItem.qml:21
+msgid "To be pop"
+msgstr ""
+
+#: components/MatchListTeamItem.qml:21
+msgid "To be determined"
+msgstr ""
+
 #: components/MatchListItem.qml:98
 #, qt-format
-msgid "%1 year"
-msgid_plural "%1 years"
+msgid "%1y"
+msgid_plural "%1y"
 msgstr[0] ""
 msgstr[1] ""
 
 #: components/MatchListItem.qml:102
-#, qt-format
-msgid "%1 month"
-msgid_plural "%1 months"
-msgstr[0] ""
-msgstr[1] ""
-
-#: components/MatchListItem.qml:106
-#, qt-format
-msgid "%1 day"
-msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: components/MatchListItem.qml:110
-#, qt-format
-msgid "%1 hour"
-msgid_plural "%1 hours"
+#, c-format, qt-format
+msgid "%1mon"
+msgid_plural "%1mon"
 msgstr[0] ""
 msgstr[1] ""
 
 #: components/MatchListItem.qml:114
-#, qt-format
-msgid "%1 minute"
-msgid_plural "%1 minutes"
+#, c-format, qt-format
+msgid "%1m"
+msgid_plural "%1m"
 msgstr[0] ""
 msgstr[1] ""
 

@@ -18,7 +18,7 @@ Item {
 
         Label {
             id: teamItemName
-            text: teamItemRoot.name
+            text: (teamItemRoot.name !== "To be determined") ? teamItemRoot.name : i18n.tr("To be determined")
             fontSize: "medium"
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             horizontalAlignment: Text.AlignHCenter
