@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-27 02:13+0100\n"
+"POT-Creation-Date: 2014-12-27 11:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: components/MatchItem.qml:63 ui/MatchPage.qml:8
+#: components/MatchItem.qml:56 ui/MatchPage.qml:8
 msgid "vs"
+msgstr ""
+
+#: components/MatchItem.qml:68
+msgid "LIVE"
 msgstr ""
 
 #: ui/AboutPage.qml:7 ui/TickerPage.qml:30
@@ -56,14 +60,14 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#: ui/TickerPage.qml:119
+#: ui/TickerPage.qml:120
 msgid "No upcoming matches"
 msgstr ""
 
-#: ui/TickerPage.qml:127
+#: ui/TickerPage.qml:128
 msgid "Something went wrong"
 msgstr ""
 
-#: ui/TickerPage.qml:136
+#: ui/TickerPage.qml:137
 msgid "Go online to see upcoming matches"
 msgstr ""

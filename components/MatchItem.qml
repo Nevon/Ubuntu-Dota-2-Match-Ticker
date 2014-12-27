@@ -12,101 +12,87 @@ ListItem.Empty {
     property string timeDiff
 
     width: parent.width
-    height: team1Logo.height + team2Logo.height + matchStart.height + units.gu(2)
+    height: Math.max(team1Info.height, team2Info.height)
 
     Item {
-        id: matchInfo
-        anchors.left: parent.left
-        anchors.leftMargin: units.gu(2)
-        anchors.right: parent.right
-        anchors.rightMargin: units.gu(2)
-        anchors.verticalCenter: parent.verticalCenter
+        id: team1Info
+        width: parent.width*0.35
+        height: team1ItemLoader.item.height
 
-        Item {
-            id: teamInfo
-            anchors.fill: parent
+        anchors {
+            left: parent.left
+        }
 
-            Item {
-                id: team1Info
-                width: matchItem.width / 2 - versusLabel.width / 2 - units.gu(2)
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.topMargin: units.gu(1)
-                anchors.bottomMargin: units.gu(1)
-                anchors.left: parent.left
+        Loader {
+            id: team1ItemLoader
+            property string name: matchItem.team1Name
+            property string logo: matchItem.team1Logo
 
-                Image {
-                    id: team1LogoImage
-                    source: matchItem.team1Logo
-                    width: Math.round(parent.width * 0.15 * 100) / 100
-                    height: team1LogoImage.width
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left
-                }
+            width: parent.width
 
-                Label {
-                    id: team1NameLabel
-                    text: matchItem.team1Name
-                    fontSize: "medium"
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: team1LogoImage.right
-                    anchors.leftMargin: units.gu(1)
-                }
-            }
+            source: (logo) ? "MatchListTeamLogoItem.qml" : "MatchListTeamItem.qml"
+        }
+    }
 
-            Item {
-                anchors.left: team1Info.right
-                anchors.right: team2Info.left
+    Item {
+        id: versusInfo
 
-                Label {
-                    id: versusLabel
-                    text: i18n.tr("vs")
-                    fontSize: "small"
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-            }
-
-            Item {
-                id: team2Info
-                width: matchItem.width / 2 - versusLabel.width / 2 - units.gu(2)
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.topMargin: units.gu(1)
-                anchors.bottomMargin: units.gu(1)
-                anchors.right: parent.right
-
-                Label {
-                    id: team2NameLabel
-                    text: matchItem.team2Name
-                    fontSize: "medium"
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: team2LogoImage.left
-                    anchors.rightMargin: units.gu(1)
-                }
-
-                Image {
-                    id: team2LogoImage
-                    source: matchItem.team2Logo
-                    width: Math.round(parent.width * 0.15 * 100) / 100
-                    height: team2LogoImage.width
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                }
-            }
+        anchors {
+            left: team1Info.right
+            right: team2Info.left
+            top: parent.top
+            bottom: parent.bottom
         }
 
         Item {
-            id: matchStart
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.leftMargin: units.gu(2)
-            anchors.rightMargin: units.gu(2)
-            anchors.top: matchInfo.bottom
+            anchors.fill: parent
+            anchors.margins: {
+                left: units.gu(1)
+                right: units.gu(1)
+            }
 
             Label {
-                text: matchItem.startTime
+                id: versusText
+                text: i18n.tr("vs")
                 anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -((versusText.height/2+matchTimeDiff.height)/2)
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                lineHeight: 1.3
+                fontSize: "small"
             }
+
+            Label {
+                id: matchTimeDiff
+                width: parent.width
+                text: (matchItem.timeDiff < 0) ? i18n.tr("LIVE") : matchItem.startTime
+                anchors.top: versusText.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                horizontalAlignment: Text.AlignHCenter
+                opacity: 0.5
+                fontSize: "small"
+            }
+        }
+    }
+
+    Item {
+        id: team2Info
+        width: parent.width*0.35
+        height: team2ItemLoader.item.height
+
+        anchors {
+            right: parent.right
+        }
+
+        Loader {
+            id: team2ItemLoader
+            property string name: matchItem.team2Name
+            property string logo: matchItem.team2Logo
+
+            width: parent.width
+
+            source: (logo) ? "MatchListTeamLogoItem.qml" : "MatchListTeamItem.qml"
         }
     }
 }

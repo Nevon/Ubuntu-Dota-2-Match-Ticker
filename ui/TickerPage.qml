@@ -52,8 +52,8 @@ Page {
             id: matchItemDelegate
             team1Name: model.team1.team_name
             team2Name: model.team2.team_name
-            team1Logo: "http://dailydota2.com" + model.team1.logo_url
-            team2Logo: "http://dailydota2.com" + model.team2.logo_url
+            team1Logo: (model.team1.logo_url) ? "http://dailydota2.com" + model.team1.logo_url : ""
+            team2Logo: (model.team2.logo_url) ? "http://dailydota2.com" + model.team2.logo_url : ""
             startTime: model.starttime
             timeDiff: model.timediff
 
@@ -103,6 +103,7 @@ Page {
         JSONListModel {
             id: tickerFeed
             source: "http://dailydota2.com/match-api"
+            //source: "https://gist.githubusercontent.com/Nevon/a55b7bda7e665ea0f7af/raw/f63119d4b311056c2b0ad4cfd7aea33455e95836/gistfile1.txt"
             query: "$.matches[*]"
         }
 
