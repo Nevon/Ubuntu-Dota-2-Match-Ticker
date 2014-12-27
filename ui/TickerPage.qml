@@ -28,7 +28,7 @@ Page {
             id: aboutButton
             action: Action {
                 text: i18n.tr("About")
-                iconName: "help"
+                iconName: "info"
                 onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
         }
