@@ -56,26 +56,32 @@ ListItem.Empty {
             Label {
                 id: versusText
                 text: i18n.tr("vs")
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: -((versusText.height/2+matchTimeDiff.height)/2)
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 lineHeight: 1.3
                 fontSize: "small"
+
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    verticalCenter: parent.verticalCenter
+                    verticalCenterOffset: -((versusText.height/2+matchTimeDiff.height)/2)
+                }
             }
 
             Label {
                 id: matchTimeDiff
                 width: parent.width
                 text: getTimeString()
-                anchors.top: versusText.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 horizontalAlignment: Text.AlignHCenter
                 opacity: 0.5
                 fontSize: "small"
                 property var absoluteStartDateString: M.moment(matchItem.startTime, "YYYY-MM-DD HH:mm:ss")
                 property var startDate: new Date(matchItem.startTime)
+
+                anchors {
+                    top: versusText.bottom
+                    horizontalCenter: parent.horizontalCenter
+                }
 
                 function getTimeString() {
                     if (matchItem.timeDiff < 0) {

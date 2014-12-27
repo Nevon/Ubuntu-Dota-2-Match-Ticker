@@ -54,43 +54,74 @@ Page {
             startTime: matchObj.starttime
             timeDiff: matchObj.timediff
 
-            anchors.top: parent.top
+            anchors {
+                top: parent.top
+            }
         }
 
         Item {
             id: leagueInfo
             visible: (matchObj.league.name || matchObj.series_type)
-            anchors.top: teams.bottom
-            anchors.topMargin: units.gu(2)
-            anchors.left: parent.left
-            anchors.right: parent.right
             height: leagueName.height + gameMode.height + units.gu(1)
+
+            anchors {
+                top: teams.bottom
+                left: parent.left
+                right: parent.right
+
+                margins: {
+                    top: units.gu(2)
+                    left: units.gu(2)
+                    right: units.gu(2)
+                }
+            }
 
             Label {
                 id: leagueName
                 text: matchObj.league.name
                 horizontalAlignment: Text.AlignHCenter
-                anchors.horizontalCenter: parent.horizontalCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                }
+
             }
 
             Label {
                 id: gameMode
                 text: qsTr(i18n.tr("Best of %1")).arg(matchObj.series_type)
-                anchors.top: leagueName.bottom
-                anchors.topMargin: units.gu(1)
-                anchors.horizontalCenter: parent.horizontalCenter
                 opacity: 0.5
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+
+                anchors {
+                    top: leagueName.bottom
+                    left: parent.left
+                    right: parent.right
+
+                    margins: {
+                        top: units.gu(1)
+                    }
+                }
             }
         }
 
         Button {
+            id: watchButton
             height: units.gu(6)
             width: units.gu(20)
             color: UbuntuColors.blue
 
-            anchors.top: leagueInfo.bottom
-            anchors.topMargin: units.gu(4)
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors {
+                top: leagueInfo.bottom
+                horizontalCenter: parent.horizontalCenter
+
+                margins: {
+                    top: units.gu(4)
+                }
+            }
 
             onClicked: {
                 Qt.openUrlExternally(matchObj.link)
@@ -102,6 +133,25 @@ Page {
                 }
                 color: "white"
                 text: i18n.tr("Watch now")
+            }
+        }
+
+        Label {
+            visible: (parseInt(matchObj.status, 10) === 1)
+            text: i18n.tr("%1 viewer", "%1 viewers", matchObj.viewers.stream).arg(matchObj.viewers.stream)
+            horizontalAlignment: Text.AlignHCenter
+            fontSize: "small"
+            opacity: 0.5
+            width: units.gu(20)
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+
+            anchors {
+                top: watchButton.bottom
+                horizontalCenter: parent.horizontalCenter
+
+                margins: {
+                    top: units.gu(1)
+                }
             }
         }
     }

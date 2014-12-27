@@ -4,8 +4,9 @@ import Ubuntu.Components 1.1
 Item {
     id: teamItemRoot
     property string name: parent.name
+    property string logo: parent.logo
 
-    height:teamItemName.height + units.gu(10)
+    height: teamItemLogo.height + teamItemName.height + units.gu(5)
 
     Item {
         anchors.fill: parent
@@ -16,6 +17,14 @@ Item {
             bottom: units.gu(2)
         }
 
+        Image {
+            id: teamItemLogo
+            source: teamItemRoot.logo
+            width: parent.width
+            height: units.gu(12)
+            fillMode: Image.PreserveAspectFit
+        }
+
         Label {
             id: teamItemName
             text: teamItemRoot.name
@@ -24,11 +33,12 @@ Item {
             horizontalAlignment: Text.AlignHCenter
 
             anchors {
+                top: teamItemLogo.bottom
                 left: parent.left
                 right: parent.right
-                verticalCenter: parent.verticalCenter
 
                 margins: {
+                    top: units.gu(1)
                     left: units.gu(1)
                     right: units.gu(1)
                 }

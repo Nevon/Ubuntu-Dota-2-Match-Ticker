@@ -5,7 +5,7 @@ Item {
     id: teamItemRoot
     property string name: parent.name
 
-    height:teamItemName.height + units.gu(10)
+    height:teamItemName.height + units.gu(14.5)
 
     Item {
         anchors.fill: parent

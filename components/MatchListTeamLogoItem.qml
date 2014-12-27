@@ -28,15 +28,21 @@ Item {
         Label {
             id: teamItemName
             text: teamItemRoot.name
-            anchors.top: teamItemLogo.bottom
-            anchors.topMargin: units.gu(1)
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.leftMargin: units.gu(1)
-            anchors.rightMargin: units.gu(1)
             fontSize: "medium"
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             horizontalAlignment: Text.AlignHCenter
+
+            anchors {
+                top: teamItemLogo.bottom
+                left: parent.left
+                right: parent.right
+
+                margins: {
+                    top: units.gu(1)
+                    left: units.gu(1)
+                    right: units.gu(1)
+                }
+            }
         }
     }
 }

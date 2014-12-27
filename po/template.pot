@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-27 19:27+0100\n"
+"POT-Creation-Date: 2014-12-27 20:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,64 +23,64 @@ msgstr ""
 msgid "vs"
 msgstr ""
 
-#: components/MatchTeams.qml:82 components/MatchListItem.qml:82
+#: components/MatchTeams.qml:83 components/MatchListItem.qml:88
 msgid "LIVE"
 msgstr ""
 
-#: components/MatchTeams.qml:92
+#: components/MatchTeams.qml:93
 #, c-format, qt-format
 msgid "%1d"
 msgid_plural "%1d"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchTeams.qml:96
+#: components/MatchTeams.qml:97
 #, qt-format
 msgid "%1h"
 msgid_plural "%1h"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchTeams.qml:100
+#: components/MatchTeams.qml:101
 #, c-format, qt-format
 msgid "%1min"
 msgid_plural "%1m"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchTeams.qml:107 components/MatchListItem.qml:115
+#: components/MatchTeams.qml:108 components/MatchListItem.qml:121
 msgid "d MMM, hh:mm"
 msgstr ""
 
-#: components/MatchListItem.qml:92
+#: components/MatchListItem.qml:98
 #, qt-format
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchListItem.qml:96
+#: components/MatchListItem.qml:102
 #, qt-format
 msgid "%1 month"
 msgid_plural "%1 months"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchListItem.qml:100
+#: components/MatchListItem.qml:106
 #, qt-format
 msgid "%1 day"
 msgid_plural "%1 days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchListItem.qml:104
+#: components/MatchListItem.qml:110
 #, qt-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: components/MatchListItem.qml:108
+#: components/MatchListItem.qml:114
 #, qt-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
@@ -91,41 +91,55 @@ msgstr[1] ""
 msgid "About"
 msgstr ""
 
-#: ui/AboutPage.qml:20
+#: ui/AboutPage.qml:19
 msgid ""
 "Dota 2 Match Ticker displays live and upcoming professional Dota 2 matches. "
 "All the information is sourced from <a href='http://dailydota2."
 "com'>DailyDota2.com</a>."
 msgstr ""
 
-#: ui/AboutPage.qml:38
+#: ui/AboutPage.qml:40
 msgid "Author"
 msgstr ""
 
-#: ui/AboutPage.qml:46
+#: ui/AboutPage.qml:48
 msgid "Website"
 msgstr ""
 
-#: ui/AboutPage.qml:47
+#: ui/AboutPage.qml:49
 msgid "https://github.com/Nevon/Ubuntu-Dota-2-Match-Ticker"
 msgstr ""
 
-#: ui/AboutPage.qml:54
+#: ui/AboutPage.qml:56
 msgid "License"
+msgstr ""
+
+#: ui/AboutPage.qml:66
+msgid ""
+"Dota, the Dota 2 logo and Defense of the Ancients are trademarks and/or "
+"registered trademarks of Valve Corporation. All other trademarks are "
+"property of their respective owners."
 msgstr ""
 
 #: ui/MatchPage.qml:16
 msgid "Watch"
 msgstr ""
 
-#: ui/MatchPage.qml:78
+#: ui/MatchPage.qml:94
 #, qt-format
 msgid "Best of %1"
 msgstr ""
 
-#: ui/MatchPage.qml:104
+#: ui/MatchPage.qml:135
 msgid "Watch now"
 msgstr ""
+
+#: ui/MatchPage.qml:141
+#, qt-format
+msgid "%1 viewer"
+msgid_plural "%1 viewers"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ui/TickerPage.qml:11
 msgid "Matches"

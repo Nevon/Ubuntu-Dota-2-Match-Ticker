@@ -6,6 +6,9 @@ import "../utils/relativeTime.js" as R
 
 Item {
     id: matchItem
+    width: parent.width
+    height: Math.max(team1Info.height, team2Info.height)
+
     property string team1Name
     property string team2Name
     property string team1Logo
@@ -13,12 +16,9 @@ Item {
     property string startTime
     property string timeDiff
 
-    width: parent.width
-    height: Math.max(team1Info.height, team2Info.height)
-
     Item {
         id: team1Info
-        width: parent.width*0.35
+        width: parent.width*0.4
         height: team1ItemLoader.item.height
 
         anchors {
@@ -32,7 +32,7 @@ Item {
 
             width: parent.width
 
-            source: (logo) ? "MatchListTeamLogoItem.qml" : "MatchListTeamItem.qml"
+            source: (logo) ? "MatchTeamLogoItem.qml" : "MatchTeamItem.qml"
         }
     }
 
@@ -74,6 +74,7 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 opacity: 0.5
                 fontSize: "small"
+
                 property var absoluteStartDateString: M.moment(matchItem.startTime, "YYYY-MM-DD HH:mm:ss")
                 property var startDate: new Date(matchItem.startTime)
 
@@ -113,7 +114,7 @@ Item {
 
     Item {
         id: team2Info
-        width: parent.width*0.35
+        width: parent.width*0.4
         height: team2ItemLoader.item.height
 
         anchors {
@@ -122,12 +123,13 @@ Item {
 
         Loader {
             id: team2ItemLoader
+
             property string name: matchItem.team2Name
             property string logo: matchItem.team2Logo
 
             width: parent.width
 
-            source: (logo) ? "MatchListTeamLogoItem.qml" : "MatchListTeamItem.qml"
+            source: (logo) ? "MatchTeamLogoItem.qml" : "MatchTeamItem.qml"
         }
     }
 }

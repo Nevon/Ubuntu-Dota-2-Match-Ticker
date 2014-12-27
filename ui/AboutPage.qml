@@ -7,32 +7,34 @@ Page {
     title: i18n.tr("About")
 
     Column {
-        spacing: units.gu(1)
+        spacing: units.gu(2)
 
-        anchors {
-            left: parent.left
-            right: parent.right
-        }
+        anchors.fill: parent
+        anchors.topMargin: units.gu(4)
 
         Label {
-            width: parent.width - units.gu(4)
+            id: aboutText
+            width: parent.width
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             text: i18n.tr("Dota 2 Match Ticker displays live and upcoming professional Dota 2 matches. All the information is sourced from <a href='http://dailydota2.com'>DailyDota2.com</a>.")
             textFormat: Text.StyledText
             linkColor: UbuntuColors.orange
-
-            anchors {
-                left: parent.left
-                right: parent.right
-                margins: units.gu(2)
-            }
+            lineHeight: 1.3
 
             onLinkActivated: {
                 Qt.openUrlExternally(link)
             }
+
+            anchors {
+                left: parent.left
+                right: parent.right
+
+                margins: {
+                    left: units.gu(2)
+                    right: units.gu(2)
+                }
+            }
         }
-
-
 
         ListItem.Subtitled {
             text: i18n.tr("Author")
@@ -55,6 +57,25 @@ Page {
             subText: "MIT"
             onClicked: {
                 Qt.openUrlExternally("http://opensource.org/licenses/MIT")
+            }
+        }
+
+        Label {
+            width: parent.width
+            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+            text: i18n.tr("Dota, the Dota 2 logo and Defense of the Ancients are trademarks and/or registered trademarks of Valve Corporation. All other trademarks are property of their respective owners.")
+            fontSize: "x-small"
+            lineHeight: 1.3
+            opacity: 0.5
+
+            anchors {
+                left: parent.left
+                right: parent.right
+
+                margins: {
+                    left: units.gu(2)
+                    right: units.gu(2)
+                }
             }
         }
     }
