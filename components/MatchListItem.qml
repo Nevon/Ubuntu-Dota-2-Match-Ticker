@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../utils/moment.js" as M
+import "../utils/relativeTime.js" as R
 
 ListItem.Empty {
     id: matchItem
@@ -84,73 +85,27 @@ ListItem.Empty {
                         var now = M.moment(new Date());
                         var then = M.moment(matchTimeDiff.startDate)
 
-                        if (now.isSame(then)) {
-                            return "";
-                        }
-
-                        if (now.isAfter(then)) {
-                            var tmp = now;
-                            now = then;
-                            then = tmp;
-                        }
-
-                        var yDiff = then.year() - now.year();
-                        var mDiff = then.month() - now.month();
-                        var dDiff = then.date() - now.date();
-                        var hourDiff = then.hour() - now.hour();
-                        var minDiff = then.minute() - now.minute();
-                        var sDiff = then.second() - now.second();
-
-                        if (sDiff < 0) {
-                            sDiff += 60;
-                            minDiff--;
-                        }
-
-                        if (minDiff < 0) {
-                            minDiff += 60;
-                            hourDiff--;
-                        }
-
-                        if (hourDiff < 0) {
-                            hourDiff += 24;
-                            dDiff--;
-                        }
-
-                        if (dDiff < 0) {
-                            var daysInLastFullMonth = M.moment(then.year() + "-" + (then.month() + 1), "YYYY-MM").subtract("months", 1).daysInMonth();
-                            if (daysInLastFullMonth < now.date()) {
-                                dDiff = daysInLastFullMonth + dDiff + (now.date() - daysInLastFullMonth);
-                            } else {
-                                dDiff = daysInLastFullMonth + dDiff;
-                            }
-                            mDiff--;
-                        }
-
-                        if (mDiff < 0) {
-                            mDiff += 12;
-                            yDiff--;
-                        }
-
+                        var relTime = R.relativeTime(now, then);
                         var result = [];
 
-                        if (yDiff) {
-                            result.push(i18n.tr("%1 year", "%1 years", yDiff).arg(yDiff));
+                        if (relTime.years) {
+                            result.push(i18n.tr("%1 year", "%1 years", relTime.years).arg(relTime.years));
                         }
 
-                        if (mDiff) {
-                            result.push(i18n.tr("%1 month", "%1 months", mDiff).arg(mDiff));
+                        if (relTime.months) {
+                            result.push(i18n.tr("%1 month", "%1 months", relTime.months).arg(relTime.months));
                         }
 
-                        if (dDiff) {
-                            result.push(i18n.tr("%1 day", "%1 days", dDiff).arg(dDiff));
+                        if (relTime.days) {
+                            result.push(i18n.tr("%1 day", "%1 days", relTime.days).arg(relTime.days));
                         }
 
-                        if (hourDiff) {
-                            result.push(i18n.tr("%1 hour", "%1 hours", hourDiff).arg(hourDiff));
+                        if (relTime.hours) {
+                            result.push(i18n.tr("%1 hour", "%1 hours", relTime.hours).arg(relTime.hours));
                         }
 
-                        if (minDiff) {
-                            result.push(i18n.tr("%1 minute", "%1 minutes", minDiff).arg(minDiff));
+                        if (relTime.minutes) {
+                            result.push(i18n.tr("%1 minute", "%1 minutes", relTime.minutes).arg(relTime.minutes));
                         }
 
                         return result.join(", ")
