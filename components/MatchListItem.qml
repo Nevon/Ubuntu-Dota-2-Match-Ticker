@@ -95,26 +95,26 @@ ListItem.Empty {
                         var result = [];
 
                         if (relTime.years) {
-                            result.push(i18n.tr("%1 year", "%1 years", relTime.years).arg(relTime.years));
+                            result.push(i18n.tr("%1y", "%1y", relTime.years).arg(relTime.years));
                         }
 
                         if (relTime.months) {
-                            result.push(i18n.tr("%1 month", "%1 months", relTime.months).arg(relTime.months));
+                            result.push(i18n.tr("%1mon", "%1mon", relTime.months).arg(relTime.months));
                         }
 
                         if (relTime.days) {
-                            result.push(i18n.tr("%1 day", "%1 days", relTime.days).arg(relTime.days));
+                            result.push(i18n.tr("%1d", "%1d", relTime.days).arg(relTime.days));
                         }
 
                         if (relTime.hours) {
-                            result.push(i18n.tr("%1 hour", "%1 hours", relTime.hours).arg(relTime.hours));
+                            result.push(i18n.tr("%1h", "%1h", relTime.hours).arg(relTime.hours));
                         }
 
                         if (relTime.minutes) {
-                            result.push(i18n.tr("%1 minute", "%1 minutes", relTime.minutes).arg(relTime.minutes));
+                            result.push(i18n.tr("%1m", "%1m", relTime.minutes).arg(relTime.minutes));
                         }
 
-                        return result.join(", ")
+                        return result.join(" ")
 
                     } else {
                         // Absolute time if more than 10 hours away
