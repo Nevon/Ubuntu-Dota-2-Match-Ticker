@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-27 23:17+0100\n"
+"POT-Creation-Date: 2015-01-01 23:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,11 +52,7 @@ msgstr[1] ""
 msgid "d MMM, hh:mm"
 msgstr ""
 
-#: components/MatchTeamItem.qml:21
-msgid "To be pop"
-msgstr ""
-
-#: components/MatchListTeamItem.qml:21
+#: components/MatchTeamItem.qml:21 components/MatchListTeamItem.qml:21
 msgid "To be determined"
 msgstr ""
 
@@ -81,34 +77,34 @@ msgid_plural "%1m"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/AboutPage.qml:7 ui/TickerPage.qml:30
+#: ui/AboutPage.qml:8 ui/TickerPage.qml:31
 msgid "About"
 msgstr ""
 
-#: ui/AboutPage.qml:19
+#: ui/AboutPage.qml:20
 msgid ""
 "Dota 2 Match Ticker displays live and upcoming professional Dota 2 matches. "
 "All the information is sourced from <a href='http://dailydota2."
 "com'>DailyDota2.com</a>."
 msgstr ""
 
-#: ui/AboutPage.qml:40
+#: ui/AboutPage.qml:41
 msgid "Author"
 msgstr ""
 
-#: ui/AboutPage.qml:48
+#: ui/AboutPage.qml:49
 msgid "Website"
 msgstr ""
 
-#: ui/AboutPage.qml:49
+#: ui/AboutPage.qml:50
 msgid "https://github.com/Nevon/Ubuntu-Dota-2-Match-Ticker"
 msgstr ""
 
-#: ui/AboutPage.qml:56
+#: ui/AboutPage.qml:57
 msgid "License"
 msgstr ""
 
-#: ui/AboutPage.qml:66
+#: ui/AboutPage.qml:67
 msgid ""
 "Dota, the Dota 2 logo and Defense of the Ancients are trademarks and/or "
 "registered trademarks of Valve Corporation. All other trademarks are "
@@ -119,27 +115,27 @@ msgstr ""
 msgid "Watch"
 msgstr ""
 
-#: ui/MatchPage.qml:94
+#: ui/MatchPage.qml:107
 #, qt-format
 msgid "Best of %1"
 msgstr ""
 
-#: ui/MatchPage.qml:135
+#: ui/MatchPage.qml:148
 msgid "Watch now"
 msgstr ""
 
-#: ui/MatchPage.qml:141
+#: ui/MatchPage.qml:154
 #, qt-format
 msgid "%1 viewer"
 msgid_plural "%1 viewers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/TickerPage.qml:11
+#: ui/TickerPage.qml:12
 msgid "Matches"
 msgstr ""
 
-#: ui/TickerPage.qml:38
+#: ui/TickerPage.qml:39
 msgid "Reload"
 msgstr ""
 

@@ -4,6 +4,7 @@ import Ubuntu.Connectivity 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../components"
 import "../models/JSONListModel"
+import "../config.js" as Config
 
 Page {
     id: tickerPage
@@ -102,8 +103,7 @@ Page {
 
         JSONListModel {
             id: tickerFeed
-            source: "http://dailydota2.com/match-api"
-            //source: "https://gist.githubusercontent.com/Nevon/a55b7bda7e665ea0f7af/raw/f63119d4b311056c2b0ad4cfd7aea33455e95836/gistfile1.txt"
+            source: Config.API_URL
             query: "$.matches[*]"
         }
 
