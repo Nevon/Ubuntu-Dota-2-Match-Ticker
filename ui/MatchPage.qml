@@ -33,12 +33,25 @@ Page {
             height: parent.height
             fillMode: Image.PreserveAspectCrop
             smooth: true
+
+            Component.onCompleted: {
+                blurredBackground.opacity = 1;
+            }
         }
 
         FastBlur {
+            id: blurredBackground
             anchors.fill: background
             source: background
             radius: 64
+            opacity: 0
+
+            Behavior on opacity {
+                UbuntuNumberAnimation {
+                    properties: "opacity"
+                    duration: UbuntuAnimation.BriskDuration
+                }
+            }
         }
     }
 
