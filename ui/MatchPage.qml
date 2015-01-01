@@ -16,6 +16,16 @@ Page {
                 text: i18n.tr("Watch")
                 iconName: "external-link"
                 onTriggered: {
+                    mx.track("Match: Open Stream", {
+                        "Method": "toolbar",
+                        "Match Link": matchObj.link,
+                        "Team 1 Name": matchObj.team1.team_name,
+                        "Team 2 Name": matchObj.team2.team_name,
+                        "Live": (matchObj.timediff < 0),
+                        "League Name": matchObj.league.name,
+                        "Image Background": matchObj.league.image_url,
+                        "Series Type": matchObj.series_type,
+                    });
                     Qt.openUrlExternally(matchObj.link)
                 }
             }
@@ -137,6 +147,16 @@ Page {
             }
 
             onClicked: {
+                mx.track("Match: Open Stream", {
+                    "Method": "WatchButton",
+                    "Match Link": matchObj.link,
+                    "Team 1 Name": matchObj.team1.team_name,
+                    "Team 2 Name": matchObj.team2.team_name,
+                    "Live": (matchObj.timediff < 0),
+                    "League Name": matchObj.league.name,
+                    "Image Background": matchObj.league.image_url,
+                    "Series Type": matchObj.series_type,
+                });
                 Qt.openUrlExternally(matchObj.link)
             }
 

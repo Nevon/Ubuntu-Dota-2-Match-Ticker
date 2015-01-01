@@ -6,6 +6,10 @@ Page {
     id: aboutPage
     title: i18n.tr("About")
 
+    Component.onCompleted: {
+        mx.track("About: Open");
+    }
+
     Column {
         spacing: units.gu(2)
 

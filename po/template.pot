@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-01 23:32+0100\n"
+"POT-Creation-Date: 2015-01-02 00:42+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,34 +77,34 @@ msgid_plural "%1m"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/AboutPage.qml:8 ui/TickerPage.qml:31
+#: ui/AboutPage.qml:7 ui/TickerPage.qml:31
 msgid "About"
 msgstr ""
 
-#: ui/AboutPage.qml:20
+#: ui/AboutPage.qml:23
 msgid ""
 "Dota 2 Match Ticker displays live and upcoming professional Dota 2 matches. "
 "All the information is sourced from <a href='http://dailydota2."
 "com'>DailyDota2.com</a>."
 msgstr ""
 
-#: ui/AboutPage.qml:41
+#: ui/AboutPage.qml:44
 msgid "Author"
 msgstr ""
 
-#: ui/AboutPage.qml:49
+#: ui/AboutPage.qml:52
 msgid "Website"
 msgstr ""
 
-#: ui/AboutPage.qml:50
+#: ui/AboutPage.qml:53
 msgid "https://github.com/Nevon/Ubuntu-Dota-2-Match-Ticker"
 msgstr ""
 
-#: ui/AboutPage.qml:57
+#: ui/AboutPage.qml:60
 msgid "License"
 msgstr ""
 
-#: ui/AboutPage.qml:67
+#: ui/AboutPage.qml:70
 msgid ""
 "Dota, the Dota 2 logo and Defense of the Ancients are trademarks and/or "
 "registered trademarks of Valve Corporation. All other trademarks are "
@@ -115,16 +115,16 @@ msgstr ""
 msgid "Watch"
 msgstr ""
 
-#: ui/MatchPage.qml:107
+#: ui/MatchPage.qml:117
 #, qt-format
 msgid "Best of %1"
 msgstr ""
 
-#: ui/MatchPage.qml:148
+#: ui/MatchPage.qml:168
 msgid "Watch now"
 msgstr ""
 
-#: ui/MatchPage.qml:154
+#: ui/MatchPage.qml:174
 #, qt-format
 msgid "%1 viewer"
 msgid_plural "%1 viewers"
@@ -139,14 +139,14 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#: ui/TickerPage.qml:120
+#: ui/TickerPage.qml:138
 msgid "No upcoming matches"
 msgstr ""
 
-#: ui/TickerPage.qml:128
+#: ui/TickerPage.qml:146
 msgid "Something went wrong"
 msgstr ""
 
-#: ui/TickerPage.qml:137
+#: ui/TickerPage.qml:155
 msgid "Go online to see upcoming matches"
 msgstr ""

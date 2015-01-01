@@ -38,7 +38,12 @@ Page {
             action: Action {
                 text: i18n.tr("Reload")
                 iconName: "reload"
-                onTriggered: tickerFeed.reload()
+                onTriggered: {
+                    mx.track("MatchList: Reload", {
+                        "Method": "toolbar"
+                    });
+                    tickerFeed.reload();
+                }
             }
         }
     }
@@ -57,9 +62,17 @@ Page {
             team2Logo: (model.team2.logo_url) ? "http://dailydota2.com" + model.team2.logo_url : ""
             startTime: model.starttime
             timeDiff: model.timediff
+            property int listIndex: index
 
             onClicked: {
-                mainStack.push(Qt.resolvedUrl("MatchPage.qml"), {'matchObj': model})
+                mx.track("MatchList: Open", {
+                    "Team 1 Name": matchItemDelegate.team1Name,
+                    "Team 2 Name": matchItemDelegate.team2Name,
+                    "Live": (matchItemDelegate.timediff < 0),
+                    "League Name": model.league.name,
+                    "List Index": matchItemDelegate.listIndex
+                });
+                mainStack.push(Qt.resolvedUrl("MatchPage.qml"), {'matchObj': model});
             }
         }
 
@@ -110,7 +123,12 @@ Page {
         PullToRefresh {
             enabled: true
             refreshing: tickerFeed.status == tickerFeed.loadingStatus
-            onRefresh: tickerFeed.reload()
+            onRefresh: {
+                mx.track("MatchList: Reload", {
+                    "Method": "pull to refresh"
+                });
+                tickerFeed.reload();
+            }
         }
     }
 

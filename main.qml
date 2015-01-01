@@ -1,6 +1,9 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
+import QtSystemInfo 5.0
 import "ui"
+import "config.js" as Config
+import "components/Mixpanel"
 
 /*!
     \brief MainView with a Label and Button elements.
@@ -36,6 +39,28 @@ MainView {
         anchors.fill: parent
     }
 
-    Component.onCompleted: mainStack.push(Qt.resolvedUrl("./ui/TickerPage.qml"))
+    DeviceInfo {
+        id: device
+    }
+
+    Mixpanel {
+        id: mx
+        userId: (device.imei(0)) ? device.imei(0) : "testuser"
+        mixpanelToken: Config.MIXPANEL_TOKEN
+        commonProperties: {
+            "Version": Config.VERSION,
+            "Product Name": device.productName(),
+            "Model": device.model(),
+            "Device ID": device.uniqueDeviceID(),
+            "OS Version": device.version(DeviceInfo.Os),
+            "Firmware Version": device.version(DeviceInfo.Firmware),
+            "IMEI": device.imei(0),
+        }
+    }
+
+    Component.onCompleted: {
+        mx.track("Load");
+        mainStack.push(Qt.resolvedUrl("./ui/TickerPage.qml"));
+    }
 }
 
