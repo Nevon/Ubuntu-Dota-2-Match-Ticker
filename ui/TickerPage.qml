@@ -46,18 +46,7 @@ Page {
                 text: i18n.tr("About")
                 iconName: "info"
                 onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
-            },
-            Action {
-                text: i18n.tr("Reload")
-                iconName: "reload"
-                onTriggered: {
-                    mx.track("MatchList: Reload", {
-                        "Method": "toolbar"
-                    });
-                    tickerFeed.reload();
-                }
             }
-
         ]
     }
 

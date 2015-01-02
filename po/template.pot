@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-02 06:53+0100\n"
+"POT-Creation-Date: 2015-01-02 06:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,14 +147,10 @@ msgstr ""
 msgid "Upcoming"
 msgstr ""
 
-#: ui/TickerPage.qml:51
-msgid "Reload"
-msgstr ""
-
-#: ui/TickerPage.qml:150
+#: ui/TickerPage.qml:139
 msgid "No upcoming matches"
 msgstr ""
 
-#: ui/TickerPage.qml:159
+#: ui/TickerPage.qml:148
 msgid "Go online to see upcoming matches"
 msgstr ""
