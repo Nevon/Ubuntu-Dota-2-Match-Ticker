@@ -1,4 +1,5 @@
-import QtQuick 2.0
+import QtQuick 2.2
+import QtQuick.Window 2.2
 import Ubuntu.Components 1.1
 import QtSystemInfo 5.0
 import "ui"
@@ -43,6 +44,17 @@ MainView {
         id: device
     }
 
+    function getScreenOrientation() {
+        switch (Screen.orientation) {
+            case Qt.PrimaryOrientation : return "Primary";
+            case Qt.LandscapeOrientation : return "Landscape";
+            case Qt.PortraitOrientation : return "Portrait";
+            case Qt.InvertedLandscapeOrientation : return "Inverted Landscape";
+            case Qt.InvertedPortraitOrientation : return "Inverted portrait";
+            default : return "Unknown";
+        }
+    }
+
     Mixpanel {
         id: mx
         userId: (device.imei(0)) ? device.imei(0) : "testuser"
@@ -55,6 +67,8 @@ MainView {
             "OS Version": device.version(DeviceInfo.Os),
             "Firmware Version": device.version(DeviceInfo.Firmware),
             "IMEI": device.imei(0),
+            "Orientation": getScreenOrientation(),
+            "Resolution": Screen.width + "x" + Screen.height,
         }
     }
 
