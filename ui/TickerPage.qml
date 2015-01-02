@@ -11,6 +11,10 @@ Page {
     anchors.fill: parent
     title: i18n.tr("Matches")
 
+    property string matchFilter: "all"
+    StateSaver.properties: "matchFilter"
+    StateSaver.enabled: true
+
     states: State {
         name: "OFFLINE"
         when: (NetworkingStatus.online === false)
@@ -24,18 +28,26 @@ Page {
         }
     }
 
-    tools: ToolbarItems {
-        ToolbarButton {
-            id: aboutButton
-            action: Action {
-                text: i18n.tr("About")
-                iconName: "info"
-                onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
+    head {
+        sections {
+            model: [i18n.tr("All"), i18n.tr("Live"), i18n.tr("Upcoming")]
+            onSelectedIndexChanged: {
+                var filterModes = ["all", "live", "upcoming"];
+                mx.track("MatchList: Filter", {
+                    "Filter": filterModes[head.sections.selectedIndex],
+                    "Previous Filter": matchFilter
+                });
+                matchFilter = filterModes[head.sections.selectedIndex]
             }
         }
 
-        ToolbarButton {
-            action: Action {
+        actions: [
+            Action {
+                text: i18n.tr("About")
+                iconName: "info"
+                onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
+            },
+            Action {
                 text: i18n.tr("Reload")
                 iconName: "reload"
                 onTriggered: {
@@ -45,7 +57,8 @@ Page {
                     tickerFeed.reload();
                 }
             }
-        }
+
+        ]
     }
 
     UbuntuListView {
@@ -116,6 +129,7 @@ Page {
 
         MatchListModel {
             id: tickerFeed
+            filter: matchFilter
         }
 
         PullToRefresh {

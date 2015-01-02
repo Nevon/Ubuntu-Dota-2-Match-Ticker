@@ -13,7 +13,6 @@ ListModel {
     property var dotaObj: new DailyDota.DailyDota(Config.API_URL);
 
     onFilterChanged: {
-        console.log("Changed filter to " + filter);
         reload();
     }
 
