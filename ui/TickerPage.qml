@@ -3,7 +3,7 @@ import Ubuntu.Components 1.1
 import Ubuntu.Connectivity 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../components"
-import "../models/JSONListModel"
+import "../models"
 import "../config.js" as Config
 
 Page {
@@ -51,8 +51,8 @@ Page {
     UbuntuListView {
         id: matchList
         anchors.fill: parent
-        model: tickerFeed.model
-        visible: model.count > 0
+        model: tickerFeed
+        visible: model.count > 0 && model.loaded === true
 
         delegate: MatchListItem {
             id: matchItemDelegate
@@ -114,15 +114,13 @@ Page {
             }
         }
 
-        JSONListModel {
+        MatchListModel {
             id: tickerFeed
-            source: Config.API_URL
-            query: "$.matches[*]"
         }
 
         PullToRefresh {
             enabled: true
-            refreshing: tickerFeed.status == tickerFeed.loadingStatus
+            refreshing: tickerFeed.loaded == false
             onRefresh: {
                 mx.track("MatchList: Reload", {
                     "Method": "pull to refresh"
@@ -133,17 +131,9 @@ Page {
     }
 
     Label {
-        visible: matchList.model.count === 0 && tickerFeed.status === tickerFeed.readyStatus
+        visible: matchList.model.count === 0
         anchors.centerIn: parent
         text: i18n.tr("No upcoming matches")
-        fontSize: "large"
-        opacity: 0.5
-    }
-
-    Label {
-        visible: tickerFeed.status === tickerFeed.errorStatus
-        anchors.centerIn: parent
-        text: i18n.tr("Something went wrong")
         fontSize: "large"
         opacity: 0.5
     }
