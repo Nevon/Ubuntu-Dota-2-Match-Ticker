@@ -1,14 +1,15 @@
 import QtQuick 2.0
 import "../config.js" as Config
 import "DailyDota/DailyDota.js" as DailyDota
+import "../constants.js" as Constants
 
 ListModel {
     id: matchListModel
 
-    property string filter
+    property int filter
 
     property bool loaded
-    signal loadFinished
+    signal loadFinished(var response)
 
     property var dotaObj: new DailyDota.DailyDota(Config.API_URL);
 
@@ -36,18 +37,15 @@ ListModel {
                 matchListModel.append(matchObj);
             }
 
-            loadFinished();
+            matchListModel.loadFinished(connection.response);
             loaded = true;
         });
     }
 
     function filterMatches(matches) {
         switch(filter) {
-            case "live":
+            case Constants.MatchFilters.Live:
                 return matches.filter(function(match) { return (match.timediff < 0 || match.status === "1") });
-                break;
-            case "upcoming":
-                return matches.filter(function(match) { return (match.timediff > 0 && match.status === "0") });
                 break;
             default:
                 return matches;

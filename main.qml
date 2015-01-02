@@ -2,8 +2,10 @@ import QtQuick 2.2
 import QtQuick.Window 2.2
 import Ubuntu.Components 1.1
 import QtSystemInfo 5.0
+import U1db 1.0 as U1db
 import "ui"
 import "config.js" as Config
+import "constants.js" as Constants
 import "components/Mixpanel"
 
 /*!
@@ -69,6 +71,31 @@ MainView {
             "IMEI": device.imei(0),
             "Orientation": getScreenOrientation(),
             "Resolution": Screen.width + "x" + Screen.height,
+        }
+    }
+
+    U1db.Database {
+        id: teamDatabase
+        path: "teams"
+    }
+
+    U1db.Database {
+        id: favoritesDatabase
+        path: "favorites"
+    }
+
+    U1db.Database {
+        id: settingsDatabase
+        path: "settings"
+    }
+
+    U1db.Document {
+        id: settingFavoriteFilter
+        database: settingsDatabase
+        docId: "favoriteFilter"
+        create: true
+        defaults: {
+            "value": Constants.MatchFilters.All
         }
     }
 

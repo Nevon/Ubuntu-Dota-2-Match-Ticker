@@ -9,28 +9,30 @@ Page {
 
     title: matchObj.team1.team_tag + " " + i18n.tr("vs") + " " + matchObj.team2.team_tag
 
-    tools: ToolbarItems {
-        ToolbarButton {
-            id: openStreamButton
-            action: Action {
-                text: i18n.tr("Watch")
-                iconName: "external-link"
-                onTriggered: {
-                    mx.track("Match: Open Stream", {
-                        "Method": "toolbar",
-                        "Match Link": matchObj.link,
-                        "Team 1 Name": matchObj.team1.team_name,
-                        "Team 2 Name": matchObj.team2.team_name,
-                        "Live": (matchObj.timediff < 0),
-                        "League Name": matchObj.league.name,
-                        "Image Background": matchObj.league.image_url,
-                        "Series Type": matchObj.series_type,
-                    });
-                    Qt.openUrlExternally(matchObj.link)
-                }
+    head.actions: [
+        Action {
+            text: i18n.tr("Watch")
+            iconName: "external-link"
+            onTriggered: {
+                mx.track("Match: Open Stream", {
+                    "Method": "toolbar",
+                    "Match Link": matchObj.link,
+                    "Team 1 Name": matchObj.team1.team_name,
+                    "Team 2 Name": matchObj.team2.team_name,
+                    "Live": (matchObj.timediff < 0),
+                    "League Name": matchObj.league.name,
+                    "Image Background": matchObj.league.image_url,
+                    "Series Type": matchObj.series_type,
+                });
+                Qt.openUrlExternally(matchObj.link)
             }
+        },
+        Action {
+            text: i18n.tr("Settings")
+            iconName: "settings"
+            onTriggered: mainStack.push(Qt.resolvedUrl("SettingsPage.qml"))
         }
-    }
+    ]
 
     Item {
         anchors.fill: parent

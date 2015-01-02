@@ -5,13 +5,14 @@ import Ubuntu.Components.ListItems 1.0 as ListItem
 import "../components"
 import "../models"
 import "../config.js" as Config
+import "../constants.js" as Constants
 
 Page {
     id: tickerPage
     anchors.fill: parent
     title: i18n.tr("Matches")
 
-    property string matchFilter: "all"
+    property string matchFilter: Constants.MatchFilters.All
     StateSaver.properties: "matchFilter"
     StateSaver.enabled: true
 
@@ -30,14 +31,13 @@ Page {
 
     head {
         sections {
-            model: [i18n.tr("All"), i18n.tr("Live"), i18n.tr("Upcoming")]
+            model: [i18n.tr("All"), i18n.tr("Live"), i18n.tr("Favorites")]
             onSelectedIndexChanged: {
-                var filterModes = ["all", "live", "upcoming"];
                 mx.track("MatchList: Filter", {
-                    "Filter": filterModes[head.sections.selectedIndex],
-                    "Previous Filter": matchFilter
+                    "Filter": Object.keys(Constants.MatchFilters)[head.sections.selectedIndex],
+                    "Previous Filter": Object.keys(Constants.MatchFilters)[matchFilter]
                 });
-                matchFilter = filterModes[head.sections.selectedIndex]
+                matchFilter = head.sections.selectedIndex
             }
         }
 
@@ -46,6 +46,11 @@ Page {
                 text: i18n.tr("About")
                 iconName: "info"
                 onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
+            },
+            Action {
+                text: i18n.tr("Settings")
+                iconName: "settings"
+                onTriggered: mainStack.push(Qt.resolvedUrl("SettingsPage.qml"))
             }
         ]
     }
@@ -119,6 +124,37 @@ Page {
         MatchListModel {
             id: tickerFeed
             filter: matchFilter
+
+            onLoadFinished: {
+                // Save each team in the DB so that we can use that when listing
+                // available teams to mark as favorites
+                var teams = {};
+
+                function createTeamObject(team) {
+                    return {
+                        "id": team.team_id,
+                        "name": team.team_name,
+                        "tag": team.team_tag,
+                        "logo": team.logo_url,
+                    }
+                }
+
+                function createTeamDocument(team) {
+                    var documentString = "import QtQuick 2.0; import U1db 1.0 as U1db; U1db.Document {database: teamDatabase; docId: '" + team.id + "'; create: true; defaults: " + JSON.stringify(team) +  "}"
+                    Qt.createQmlObject(documentString, teamDatabase)
+                }
+
+                for (var i = 0; i < response.length; i++) {
+                    teams[response[i].team1.team_id] = createTeamObject(response[i].team1)
+                    teams[response[i].team2.team_id] = createTeamObject(response[i].team2)
+                }
+
+                for (var team in teams) {
+                    if (teams.hasOwnProperty(team)) {
+                        createTeamDocument(teams[team])
+                    }
+                }
+            }
         }
 
         PullToRefresh {

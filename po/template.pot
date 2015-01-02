@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-02 06:58+0100\n"
+"POT-Creation-Date: 2015-01-02 12:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,46 +111,54 @@ msgid ""
 "property of their respective owners."
 msgstr ""
 
-#: ui/MatchPage.qml:16
+#: ui/SettingsPage.qml:8 ui/MatchPage.qml:31 ui/TickerPage.qml:51
+msgid "Settings"
+msgstr ""
+
+#: ui/SettingsPage.qml:23
+msgid "Default filter"
+msgstr ""
+
+#: ui/MatchPage.qml:14
 msgid "Watch"
 msgstr ""
 
-#: ui/MatchPage.qml:114
+#: ui/MatchPage.qml:116
 #, qt-format
 msgid "Best of %1"
 msgstr ""
 
-#: ui/MatchPage.qml:165
+#: ui/MatchPage.qml:167
 msgid "Watch now"
 msgstr ""
 
-#: ui/MatchPage.qml:171
+#: ui/MatchPage.qml:173
 #, qt-format
 msgid "%1 viewer"
 msgid_plural "%1 viewers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/TickerPage.qml:12
+#: ui/TickerPage.qml:13
 msgid "Matches"
 msgstr ""
 
-#: ui/TickerPage.qml:33
+#: ui/TickerPage.qml:34
 msgid "All"
 msgstr ""
 
-#: ui/TickerPage.qml:33
+#: ui/TickerPage.qml:34
 msgid "Live"
 msgstr ""
 
-#: ui/TickerPage.qml:33
-msgid "Upcoming"
+#: ui/TickerPage.qml:34
+msgid "Favorites"
 msgstr ""
 
-#: ui/TickerPage.qml:139
+#: ui/TickerPage.qml:175
 msgid "No upcoming matches"
 msgstr ""
 
-#: ui/TickerPage.qml:148
+#: ui/TickerPage.qml:184
 msgid "Go online to see upcoming matches"
 msgstr ""
