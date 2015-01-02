@@ -43,10 +43,7 @@ Page {
             height: parent.height
             fillMode: Image.PreserveAspectCrop
             smooth: true
-
-            Component.onCompleted: {
-                blurredBackground.opacity = 1;
-            }
+            onStatusChanged: if (background.status === Image.Ready) blurredBackground.opacity = 1
         }
 
         FastBlur {
