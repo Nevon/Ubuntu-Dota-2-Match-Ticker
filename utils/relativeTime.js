@@ -32,7 +32,7 @@ function relativeTime(now, then) {
     }
 
     if (dDiff < 0) {
-        var daysInLastFullMonth = M.moment(then.year() + "-" + (then.month() + 1), "YYYY-MM").subtract("months", 1).daysInMonth();
+        var daysInLastFullMonth = M.moment(then.year() + "-" + (then.month() + 1), "YYYY-MM").subtract(1, "months").daysInMonth();
         if (daysInLastFullMonth < now.date()) {
             dDiff = daysInLastFullMonth + dDiff + (now.date() - daysInLastFullMonth);
         } else {
