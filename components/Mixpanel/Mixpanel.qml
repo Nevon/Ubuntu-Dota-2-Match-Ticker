@@ -33,7 +33,6 @@ QtObject {
      */
     function track(eventName, properties) {
         if (!enabled) {
-            console.log("Mixpanel not enabled")
             return
         }
 
