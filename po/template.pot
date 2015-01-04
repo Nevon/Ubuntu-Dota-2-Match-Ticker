@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-02 12:04+0100\n"
+"POT-Creation-Date: 2015-01-04 15:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: main.qml:109
+msgid "Help improve Dota 2 Match Ticker?"
+msgstr ""
+
+#: main.qml:110
+msgid ""
+"With your permission, usage information will be collected to improve this "
+"application (you can change this setting at any time from the settings page)."
+msgstr ""
+
+#: main.qml:113
+msgid "Allow"
+msgstr ""
+
+#: main.qml:124
+msgid "Do not allow"
+msgstr ""
 
 #: components/MatchTeams.qml:58 components/MatchListItem.qml:58
 #: ui/MatchPage.qml:10
@@ -77,7 +95,7 @@ msgid_plural "%1m"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ui/AboutPage.qml:7 ui/TickerPage.qml:46
+#: ui/AboutPage.qml:7 ui/SettingsPage.qml:46
 msgid "About"
 msgstr ""
 
@@ -111,12 +129,12 @@ msgid ""
 "property of their respective owners."
 msgstr ""
 
-#: ui/SettingsPage.qml:8 ui/MatchPage.qml:31 ui/TickerPage.qml:51
+#: ui/SettingsPage.qml:8 ui/MatchPage.qml:31 ui/TickerPage.qml:46
 msgid "Settings"
 msgstr ""
 
-#: ui/SettingsPage.qml:23
-msgid "Default filter"
+#: ui/SettingsPage.qml:25
+msgid "Send anonymous usage metrics"
 msgstr ""
 
 #: ui/MatchPage.qml:14
@@ -155,10 +173,10 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: ui/TickerPage.qml:175
+#: ui/TickerPage.qml:139
 msgid "No upcoming matches"
 msgstr ""
 
-#: ui/TickerPage.qml:184
+#: ui/TickerPage.qml:148
 msgid "Go online to see upcoming matches"
 msgstr ""

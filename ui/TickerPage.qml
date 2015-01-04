@@ -43,11 +43,6 @@ Page {
 
         actions: [
             Action {
-                text: i18n.tr("About")
-                iconName: "info"
-                onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
-            },
-            Action {
                 text: i18n.tr("Settings")
                 iconName: "settings"
                 onTriggered: mainStack.push(Qt.resolvedUrl("SettingsPage.qml"))
@@ -124,37 +119,6 @@ Page {
         MatchListModel {
             id: tickerFeed
             filter: matchFilter
-
-            onLoadFinished: {
-                // Save each team in the DB so that we can use that when listing
-                // available teams to mark as favorites
-                var teams = {};
-
-                function createTeamObject(team) {
-                    return {
-                        "id": team.team_id,
-                        "name": team.team_name,
-                        "tag": team.team_tag,
-                        "logo": team.logo_url,
-                    }
-                }
-
-                function createTeamDocument(team) {
-                    var documentString = "import QtQuick 2.0; import U1db 1.0 as U1db; U1db.Document {database: teamDatabase; docId: '" + team.id + "'; create: true; defaults: " + JSON.stringify(team) +  "}"
-                    Qt.createQmlObject(documentString, teamDatabase)
-                }
-
-                for (var i = 0; i < response.length; i++) {
-                    teams[response[i].team1.team_id] = createTeamObject(response[i].team1)
-                    teams[response[i].team2.team_id] = createTeamObject(response[i].team2)
-                }
-
-                for (var team in teams) {
-                    if (teams.hasOwnProperty(team)) {
-                        createTeamDocument(teams[team])
-                    }
-                }
-            }
         }
 
         PullToRefresh {

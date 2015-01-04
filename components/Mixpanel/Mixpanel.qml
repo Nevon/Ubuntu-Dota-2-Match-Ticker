@@ -7,6 +7,8 @@ import QtQuick 2.0
  */
 
 QtObject {
+    property bool enabled: true
+
     // nothing works without it
     property string mixpanelToken: undefined
 
@@ -30,6 +32,11 @@ QtObject {
      * @param properties Optional dictionary to pass to mixpanel token and userid are added on top of it
      */
     function track(eventName, properties) {
+        if (!enabled) {
+            console.log("Mixpanel not enabled")
+            return
+        }
+
         if(!mixpanelToken || (!userId && !sendIp)) {
             console.error("ERROR: Mixpanel token or user id is missing")
             return

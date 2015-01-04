@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Window 2.2
 import Ubuntu.Components 1.1
+import Ubuntu.Components.Popups 1.0
 import QtSystemInfo 5.0
 import U1db 1.0 as U1db
 import "ui"
@@ -42,6 +43,31 @@ MainView {
         anchors.fill: parent
     }
 
+    U1db.Database {
+        id: settingsDatabase
+        path: "settings"
+    }
+
+    U1db.Document {
+        id: trackingDocument
+        database: settingsDatabase
+        docId: "tracking"
+        create: true
+        defaults: {
+            "enabled": false
+        }
+    }
+
+    U1db.Document {
+        id: flagsDocument
+        database: settingsDatabase
+        docId: "flags"
+        create: true
+        defaults: {
+            "firstrun": true
+        }
+    }
+
     DeviceInfo {
         id: device
     }
@@ -59,6 +85,7 @@ MainView {
 
     Mixpanel {
         id: mx
+        enabled: trackingDocument.contents["enabled"]
         userId: (device.imei(0)) ? device.imei(0) : "testuser"
         mixpanelToken: Config.MIXPANEL_TOKEN
         commonProperties: {
@@ -74,34 +101,52 @@ MainView {
         }
     }
 
-    U1db.Database {
-        id: teamDatabase
-        path: "teams"
-    }
+    Component {
+        id: trackingAcceptanceDialog
 
-    U1db.Database {
-        id: favoritesDatabase
-        path: "favorites"
-    }
+        Dialog {
+            id: trackingDialog
+            title: i18n.tr("Help improve Dota 2 Match Ticker?")
+            text: i18n.tr("With your permission, usage information will be collected to improve this application (you can change this setting at any time from the settings page).")
 
-    U1db.Database {
-        id: settingsDatabase
-        path: "settings"
-    }
+            Button {
+                text: i18n.tr("Allow")
+                color: UbuntuColors.orange
+                onClicked: {
+                    var trackingData = trackingDocument.contents
+                    trackingData.enabled = true
+                    trackingDocument.contents = trackingData
+                    PopupUtils.close(trackingDialog)
+                }
+            }
 
-    U1db.Document {
-        id: settingFavoriteFilter
-        database: settingsDatabase
-        docId: "favoriteFilter"
-        create: true
-        defaults: {
-            "value": Constants.MatchFilters.All
+            Button {
+                text: i18n.tr("Do not allow")
+                onClicked: {
+                    var trackingData = trackingDocument.contents
+                    trackingData.enabled = false
+                    trackingDocument.contents = trackingData
+                    PopupUtils.close(trackingDialog)
+                }
+            }
         }
     }
 
     Component.onCompleted: {
-        mx.track("Load");
         mainStack.push(Qt.resolvedUrl("./ui/TickerPage.qml"));
+
+        if (flagsDocument.contents["firstrun"] === true) {
+            // Ask for permission to track usage metrics
+            PopupUtils.open(trackingAcceptanceDialog)
+
+            // Ideally I'd want to run this after quitting, in case
+            // I'd want to show some tutorial stuff elsewhere in the app
+            var flags = flagsDocument.contents
+            flags.firstrun = false
+            flagsDocument.contents = flags
+        }
+
+        mx.track("Load");
     }
 }
 

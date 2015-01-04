@@ -11,30 +11,41 @@ Page {
         mx.track("Settings: Open");
     }
 
+    function changedSetting(properties) {
+        mx.track("Settings: Change", properties)
+    }
+
     Column {
-        spacing: units.gu(3)
         anchors {
             left: parent.left
             right: parent.right
         }
 
-        ListItem.ItemSelector {
-            id: favoriteFilterSelector
-            text: i18n.tr("Default filter")
-            model: Object.keys(Constants.MatchFilters)
-            selectedIndex: settingFavoriteFilter.contents.value
+        ListItem.Standard {
+            text: i18n.tr("Send anonymous usage metrics")
+            progression: false
+            control: Switch {
+                id: trackingSwitch
+                checked: trackingDocument.contents.enabled
 
-            onSelectedIndexChanged: {
-                var newFilterLabel = favoriteFilterSelector.model[selectedIndex];
-                var newFilterValue = Constants.MatchFilters[favoriteFilterSelector.model[selectedIndex]]
-                mx.track("Settings: Change: Filter", {
-                    "Filter": newFilterLabel
-                })
+                onTriggered: {
+                    var tracking = trackingDocument.contents
+                    tracking.enabled = trackingSwitch.checked
+                    trackingDocument.contents = tracking
 
-                console.log("Index changed to" + newFilterLabel)
-                settingFavoriteFilter.contents.value = newFilterValue
-                console.log(settingsDatabase.putDoc("favoriteFilter"))
+                    // Won't be sent if tracking is disabled
+                    settingsPage.changedSetting({
+                        "Setting": "Enable tracking",
+                        "Value": tracking.enabled
+                    })
+                }
             }
+        }
+
+        ListItem.Standard {
+            text: i18n.tr("About")
+            progression: true
+            onTriggered: mainStack.push(Qt.resolvedUrl("AboutPage.qml"))
         }
     }
 
