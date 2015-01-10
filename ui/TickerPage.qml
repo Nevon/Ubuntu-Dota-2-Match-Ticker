@@ -31,7 +31,7 @@ Page {
 
     head {
         sections {
-            model: [i18n.tr("All"), i18n.tr("Live"), i18n.tr("Favorites")]
+            model: [i18n.tr("All"), i18n.tr("Live")]
             onSelectedIndexChanged: {
                 mx.track("MatchList: Filter", {
                     "Filter": Object.keys(Constants.MatchFilters)[head.sections.selectedIndex],
