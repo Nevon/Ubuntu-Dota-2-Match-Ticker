@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-10 11:48+0100\n"
+"POT-Creation-Date: 2015-01-10 12:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: main.qml:109
+#: main.qml:122
 msgid "Help improve Dota 2 Match Ticker?"
 msgstr ""
 
-#: main.qml:110
+#: main.qml:123
 msgid ""
 "With your permission, usage information will be collected to improve this "
 "application (you can change this setting at any time from the settings page)."
 msgstr ""
 
-#: main.qml:113
+#: main.qml:126
 msgid "Allow"
 msgstr ""
 
-#: main.qml:124
+#: main.qml:137
 msgid "Do not allow"
 msgstr ""
 

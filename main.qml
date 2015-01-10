@@ -8,6 +8,7 @@ import "ui"
 import "config.js" as Config
 import "constants.js" as Constants
 import "components/Mixpanel"
+import "utils/uuid.js" as Uuid
 
 /*!
     \brief MainView with a Label and Button elements.
@@ -54,7 +55,8 @@ MainView {
         docId: "tracking"
         create: true
         defaults: {
-            "enabled": false
+            "enabled": false,
+            "userId": ""
         }
     }
 
@@ -86,7 +88,6 @@ MainView {
     Mixpanel {
         id: mx
         enabled: trackingDocument.contents["enabled"]
-        userId: (device.imei(0)) ? device.imei(0) : "testuser"
         mixpanelToken: Config.MIXPANEL_TOKEN
         commonProperties: {
             "Version": Config.VERSION,
@@ -95,9 +96,21 @@ MainView {
             "Device ID": device.uniqueDeviceID(),
             "OS Version": device.version(DeviceInfo.Os),
             "Firmware Version": device.version(DeviceInfo.Firmware),
-            "IMEI": device.imei(0),
             "Orientation": getScreenOrientation(),
             "Resolution": Screen.width + "x" + Screen.height,
+        }
+
+        Component.onCompleted: {
+            var id = trackingDocument.contents["userId"]
+
+            if (!id) {
+                id = Uuid.generateUUID()
+                var tracking = trackingDocument.contents
+                tracking.userId = id
+                trackingDocument.contents = tracking
+            }
+
+            mx.userId = id
         }
     }
 
