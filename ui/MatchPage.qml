@@ -6,8 +6,7 @@ import "../components"
 Page {
     id: matchPage
     property var matchObj
-
-    title: matchObj.team1.team_tag + " " + i18n.tr("vs") + " " + matchObj.team2.team_tag
+    title: qsTr(i18n.tr("%1 vs %2")).arg(matchObj.team1.team_tag).arg(matchObj.team2.team_tag)
 
     head.actions: [
         Action {

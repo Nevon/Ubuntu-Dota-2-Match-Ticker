@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-10 12:33+0100\n"
+"POT-Creation-Date: 2015-01-10 13:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,6 @@ msgid "Do not allow"
 msgstr ""
 
 #: components/MatchTeams.qml:58 components/MatchListItem.qml:58
-#: ui/MatchPage.qml:10
 msgid "vs"
 msgstr ""
 
@@ -129,7 +128,7 @@ msgid ""
 "property of their respective owners."
 msgstr ""
 
-#: ui/SettingsPage.qml:8 ui/MatchPage.qml:31 ui/TickerPage.qml:46
+#: ui/SettingsPage.qml:8 ui/MatchPage.qml:30 ui/TickerPage.qml:61
 msgid "Settings"
 msgstr ""
 
@@ -137,20 +136,25 @@ msgstr ""
 msgid "Send anonymous usage metrics"
 msgstr ""
 
-#: ui/MatchPage.qml:14
+#: ui/MatchPage.qml:9
+#, qt-format
+msgid "%1 vs %2"
+msgstr ""
+
+#: ui/MatchPage.qml:13
 msgid "Watch"
 msgstr ""
 
-#: ui/MatchPage.qml:116
+#: ui/MatchPage.qml:115
 #, qt-format
 msgid "Best of %1"
 msgstr ""
 
-#: ui/MatchPage.qml:167
+#: ui/MatchPage.qml:166
 msgid "Watch now"
 msgstr ""
 
-#: ui/MatchPage.qml:173
+#: ui/MatchPage.qml:172
 #, qt-format
 msgid "%1 viewer"
 msgid_plural "%1 viewers"
@@ -161,18 +165,18 @@ msgstr[1] ""
 msgid "Matches"
 msgstr ""
 
-#: ui/TickerPage.qml:34
-msgid "All"
+#: ui/TickerPage.qml:28
+msgid "Go online to see upcoming matches"
 msgstr ""
 
-#: ui/TickerPage.qml:34
-msgid "Live"
-msgstr ""
-
-#: ui/TickerPage.qml:139
+#: ui/TickerPage.qml:41
 msgid "No upcoming matches"
 msgstr ""
 
-#: ui/TickerPage.qml:148
-msgid "Go online to see upcoming matches"
+#: ui/TickerPage.qml:49
+msgid "All"
+msgstr ""
+
+#: ui/TickerPage.qml:49
+msgid "Live"
 msgstr ""
