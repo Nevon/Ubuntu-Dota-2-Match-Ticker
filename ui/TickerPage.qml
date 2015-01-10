@@ -31,15 +31,27 @@ Page {
         },
         State {
             name: "EMPTY"
-            when: (matchList.model.count === 0)
+            when: (matchList.model.count === 0 && matchList.model.loaded)
             PropertyChanges {
                 target: matchList
                 visible: false
             }
             PropertyChanges {
+                target: tickerMessageBox
+                visible: true
+                clickHandler: function () {
+                    tickerFeed.reload()
+                }
+            }
+
+            PropertyChanges {
                 target: tickerMessage
                 text: tickerMessage.emptyMessages[head.sections.selectedIndex]
-                visible: true
+            }
+
+            PropertyChanges {
+                target: tickerSubMessage
+                text: i18n.tr("Tap to reload")
             }
         }
     ]
@@ -69,7 +81,6 @@ Page {
         id: matchList
         anchors.fill: parent
         model: tickerFeed
-        visible: model.count > 0 && model.loaded === true
 
         delegate: MatchListItem {
             id: matchItemDelegate
@@ -142,23 +153,50 @@ Page {
             onRefresh: {
                 mx.track("MatchList: Reload", {
                     "Method": "pull to refresh"
-                });
-                tickerFeed.reload();
+                })
+                tickerFeed.reload()
             }
         }
     }
 
-    Label {
-        id: tickerMessage
+    Item {
+        id: tickerMessageBox
         visible: false
-        anchors.centerIn: parent
-        text: ""
-        fontSize: "large"
-        opacity: 0.5
+        anchors.fill: parent
+        property var clickHandler
 
-        property var emptyMessages: [
-            i18n.tr("No matches"),
-            i18n.tr("No live matches")
-        ]
+        Label {
+            id: tickerMessage
+            text: ""
+            fontSize: "large"
+            opacity: 0.5
+            anchors.centerIn: parent
+
+            property var emptyMessages: [
+                i18n.tr("No matches"),
+                i18n.tr("No live matches")
+            ]
+        }
+
+        Label {
+            id: tickerSubMessage
+            text: ""
+            fontSize: "small"
+            opacity: 0.25
+            horizontalAlignment: Text.AlignHCenter
+            lineHeight: 1.3
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: tickerMessage.bottom
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                parent.clickHandler()
+            }
+        }
     }
 }
