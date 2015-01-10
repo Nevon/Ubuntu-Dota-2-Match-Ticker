@@ -97,10 +97,26 @@ Page {
                     "Team 1 Name": matchItemDelegate.team1Name,
                     "Team 2 Name": matchItemDelegate.team2Name,
                     "Live": (matchItemDelegate.timediff < 0),
-                    "League Name": model.league.name,
+                    "League Name": (model.league && model.league.name) ? model.league.name : "",
                     "List Index": matchItemDelegate.listIndex
                 });
-                mainStack.push(Qt.resolvedUrl("MatchPage.qml"), {'matchObj': model});
+
+                mainStack.push(Qt.resolvedUrl("MatchPage.qml"), {
+                    "link": model.link,
+                    "team1Name": model.team1.team_name,
+                    "team2Name": model.team2.team_name,
+                    "team1Tag": model.team1.team_tag,
+                    "team2Tag": model.team2.team_tag,
+                    "team1Logo": (model.team1.logo_url) ? Constants.ImageHost + model.team1.logo_url : "",
+                    "team2Logo": (model.team2.logo_url) ? Constants.ImageHost + model.team2.logo_url : "",
+                    "leagueName": (model.league && model.league.name) ? model.league.name : "",
+                    "leagueImage": (model.league && model.league.image_url) ? Constants.ImageHost + model.league.image_url : "",
+                    "seriesType": model.series_type,
+                    "startTime": new Date(model.starttime_unix),
+                    "timeDiff": model.timediff,
+                    "streamViewers": model.viewers.stream,
+                    "status": parseInt(model.status, 10)
+                });
             }
         }
 

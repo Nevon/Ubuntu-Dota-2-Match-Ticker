@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-10 14:32+0100\n"
+"POT-Creation-Date: 2015-01-10 15:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,7 +128,7 @@ msgid ""
 "property of their respective owners."
 msgstr ""
 
-#: ui/SettingsPage.qml:8 ui/MatchPage.qml:30 ui/TickerPage.qml:73
+#: ui/SettingsPage.qml:8 ui/MatchPage.qml:44 ui/TickerPage.qml:73
 msgid "Settings"
 msgstr ""
 
@@ -136,25 +136,25 @@ msgstr ""
 msgid "Send anonymous usage metrics"
 msgstr ""
 
-#: ui/MatchPage.qml:9
+#: ui/MatchPage.qml:23
 #, qt-format
 msgid "%1 vs %2"
 msgstr ""
 
-#: ui/MatchPage.qml:13
+#: ui/MatchPage.qml:27
 msgid "Watch"
 msgstr ""
 
-#: ui/MatchPage.qml:115
+#: ui/MatchPage.qml:129
 #, qt-format
 msgid "Best of %1"
 msgstr ""
 
-#: ui/MatchPage.qml:166
+#: ui/MatchPage.qml:180
 msgid "Watch now"
 msgstr ""
 
-#: ui/MatchPage.qml:172
+#: ui/MatchPage.qml:186
 #, qt-format
 msgid "%1 viewer"
 msgid_plural "%1 viewers"
@@ -182,10 +182,10 @@ msgstr ""
 msgid "Live"
 msgstr ""
 
-#: ui/TickerPage.qml:176
+#: ui/TickerPage.qml:192
 msgid "No matches"
 msgstr ""
 
-#: ui/TickerPage.qml:177
+#: ui/TickerPage.qml:193
 msgid "No live matches"
 msgstr ""
