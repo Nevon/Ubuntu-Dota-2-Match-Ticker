@@ -11,23 +11,38 @@ Page {
     id: tickerPage
     anchors.fill: parent
     title: i18n.tr("Matches")
-
     property string matchFilter: Constants.MatchFilters.All
     StateSaver.properties: "matchFilter"
     StateSaver.enabled: true
 
-    states: State {
-        name: "OFFLINE"
-        when: (NetworkingStatus.online === false)
-        PropertyChanges {
-            target: matchList
-            visible: false
+    states: [
+        State {
+            name: "OFFLINE"
+            when: (NetworkingStatus.online === false)
+            PropertyChanges {
+                target: matchList
+                visible: false
+            }
+            PropertyChanges {
+                target: tickerMessage
+                text: i18n.tr("Go online to see %1 matches")
+                visible: true
+            }
+        },
+        State {
+            name: "EMPTY"
+            when: (matchList.model.count === 0)
+            PropertyChanges {
+                target: matchList
+                visible: false
+            }
+            PropertyChanges {
+                target: tickerMessage
+                text: tickerMessage.emptyMessages[head.sections.selectedIndex]
+                visible: true
+            }
         }
-        PropertyChanges {
-            target: offlineMessage
-            visible: true
-        }
-    }
+    ]
 
     head {
         sections {
@@ -134,19 +149,16 @@ Page {
     }
 
     Label {
-        visible: matchList.model.count === 0
-        anchors.centerIn: parent
-        text: i18n.tr("No upcoming matches")
-        fontSize: "large"
-        opacity: 0.5
-    }
-
-    Label {
-        id: offlineMessage
+        id: tickerMessage
         visible: false
         anchors.centerIn: parent
-        text: i18n.tr("Go online to see upcoming matches")
+        text: ""
         fontSize: "large"
         opacity: 0.5
+
+        property var emptyMessages: [
+            i18n.tr("No matches"),
+            i18n.tr("No live matches")
+        ]
     }
 }
