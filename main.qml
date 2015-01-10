@@ -21,7 +21,7 @@ MainView {
     objectName: "mainView"
 
     // Note! applicationName needs to match the "name" field of the click manifest
-    applicationName: "com.gmail.developer.tommy.dota-2-match-ticker"
+    applicationName: "com.ubuntu.developer.tommybrunn.dota-2-match-ticker"
 
     /*
      This property enables the application to change orientation

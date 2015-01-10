@@ -1,5 +1,5 @@
 {
-    "name": "com.gmail.developer.tommy.dota-2-match-ticker",
+    "name": "com.ubuntu.developer.tommybrunn.dota-2-match-ticker",
     "description": "See upcoming Dota 2 matches",
     "architecture": "all",
     "title": "Dota 2 Match Ticker",
@@ -9,7 +9,7 @@
             "desktop": "dota-2-match-ticker.desktop"
         }
     },
-    "version": "0.0.2",
+    "version": "0.0.3",
     "maintainer": "Tommy Brunn <tommy.brunn@gmail.com>",
     "framework": "ubuntu-sdk-14.10"
 }
