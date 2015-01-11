@@ -112,7 +112,7 @@ Page {
                     "leagueName": (model.league && model.league.name) ? model.league.name : "",
                     "leagueImage": (model.league && model.league.image_url) ? Constants.ImageHost + model.league.image_url : "",
                     "seriesType": model.series_type,
-                    "startTime": new Date(model.starttime_unix),
+                    "startTime": model.starttime,
                     "timeDiff": model.timediff,
                     "streamViewers": model.viewers.stream,
                     "status": parseInt(model.status, 10)
