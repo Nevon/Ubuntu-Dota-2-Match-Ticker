@@ -5,4 +5,8 @@ Icon=dota-2-match-ticker.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Show-Header=false
+X-Ubuntu-Splash-Color=#C05B3B
+X-Ubuntu-Splash-Image=splash-icon.png
+
 
