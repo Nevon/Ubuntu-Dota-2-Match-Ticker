@@ -9,7 +9,7 @@
             "desktop": "dota-2-match-ticker.desktop"
         }
     },
-    "version": "0.0.4",
+    "version": "0.0.5",
     "maintainer": "Tommy Brunn <tommy.brunn@gmail.com>",
     "framework": "ubuntu-sdk-14.10"
 }
